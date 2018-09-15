@@ -1,0 +1,26 @@
+extends layout.pug
+
+block content
+    div.row
+        div.col-md-8.col-md-offset-2
+            div.panel.panel-default
+                div.panel-heading Login
+                div.panel-body
+                    if(errors)
+                        div.alert.alert-danger
+                            ul
+                                each error in errors
+                                    li=error.msg
+                    form(class="form-horizontal",method="POST",action="/dashboard/login")
+                        div.form-group
+                            label.col-lg-4.control-label E-Mail Adress
+                            div.col-lg-6
+                                input(class="form-control",type="text",name="email")
+                        div.form-group
+                            label.col-lg-4.control-label Password
+                            div.col-lg-6
+                                input(class="form-control",type="password",name="password")
+                        div.form-group
+                            div.col-md-6.col-md-offset-4
+                                button.btn.btn-primary Login
+
